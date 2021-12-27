@@ -1,6 +1,3 @@
-using HashidsNet;
-using LiteDB;
-
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<ILiteDatabase, LiteDatabase>(_ => new LiteDatabase("shorten-service.db"));
 var app = builder.Build();
