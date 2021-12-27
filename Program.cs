@@ -2,16 +2,8 @@ using HashidsNet;
 using LiteDB;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<ILiteDatabase, LiteDatabase>(_ => new LiteDatabase("shorten-service.db"));
 var app = builder.Build();
-
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
 
 Hashids _hashIds = new Hashids("This is my shortener", 6);
 
@@ -32,7 +24,7 @@ app.MapGet("/{shortUrl}", (string shortUrl, ILiteDatabase _context) =>
     return Results.NoContent();
 });
 
-app.Run();
+app.Run("http://localhost:4000");
 
 class Url
 {

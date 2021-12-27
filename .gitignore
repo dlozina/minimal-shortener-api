@@ -1,7 +1,6 @@
 .idea/
 obj/
 bin/
-Properties/
 shorten-service-log.db
 shorten-service.db
 
