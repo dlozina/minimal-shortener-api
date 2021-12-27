@@ -13,8 +13,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-Hashids _hashIds;
-_hashIds = new Hashids("This is my shortener", 6);
+Hashids _hashIds = new Hashids("This is my shortener", 6);
 
 app.MapPost("/shorten", (Url url, ILiteDatabase _context) =>
 {
