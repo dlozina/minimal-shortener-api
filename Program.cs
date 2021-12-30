@@ -23,8 +23,4 @@ app.MapGet("/{shortUrl}", (string shortUrl, ILiteDatabase _context) =>
 
 app.Run("http://localhost:4000");
 
-class Url
-{
-    public int Id { get; set; }
-    public string longUrl { get; set; }
-}
+public record Url(int Id, string longUrl);
